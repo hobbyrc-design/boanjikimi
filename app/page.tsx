@@ -1,72 +1,39 @@
-import Image from "next/image";
-
+// 보안지킴이 첫 화면 (DESIGN.md 2.1의 ①②③⑫ 영역)
+// 입력창과 판정 결과(④~⑪)는 PLAN 작업 14~17에서 추가한다.
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        {/* 앱 이름 제목 */}
-        <h1 className="text-5xl font-bold tracking-tight text-black dark:text-zinc-50">
-          보안지킴이
-        </h1>
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="flex flex-1 justify-center bg-zinc-50 font-sans dark:bg-black">
+      <main className="flex w-full max-w-2xl flex-col gap-8 bg-white px-6 py-16 sm:px-12 dark:bg-zinc-950">
+        {/* ① 제목과 ② 한 줄 소개 */}
+        <header className="flex flex-col gap-3">
+          <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl dark:text-zinc-50">
+            보안지킴이
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            의심스러운 메일·문자를 붙여넣으면 위험한지 알려드립니다.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </header>
+
+        {/* ③ 경고 문구: 무엇을 넣으면 안 되는지 항상 보여준다 */}
+        <section
+          role="note"
+          className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200"
+        >
+          <p className="font-semibold">⚠ 입력하지 마세요</p>
+          <p className="mt-1 leading-7">
+            비밀·대외비 및 개인정보, 부대 정보는 입력하지 마세요.
+          </p>
+        </section>
+
+        {/* 판정 기능이 아직 없음을 정직하게 알린다 */}
+        <section className="rounded-lg border border-dashed border-zinc-300 px-4 py-6 text-center text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+          판정 기능을 준비하고 있습니다.
+        </section>
+
+        {/* ⑫ 하단 안내 */}
+        <footer className="border-t border-zinc-200 pt-6 text-sm leading-6 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+          교육·시연용 서비스입니다. 의심되면 소속 정보보호 담당자에게 문의하세요.
+        </footer>
       </main>
     </div>
   );
