@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 보안지킴이
 
-## Getting Started
+지휘관이 의심스러운 메일·문자 내용을 붙여넣으면 **위험 / 주의 / 안전**으로 판정하고, 왜 그런지와 함께 정보통신 업무의 중요성을 알려주는 **교육·시연용 웹앱**입니다.
 
-First, run the development server:
+> ⚠ 비밀·대외비 및 개인정보, 부대 정보는 입력하지 마세요.
+> 이 서비스는 교육·시연용이며, 실제 업무에 쓰려면 소속 정보보호 부서의 보안성 검토가 먼저 필요합니다.
+
+## 현재 상태
+
+| 항목 | 상태 |
+|---|---|
+| 첫 화면 (소개·경고 문구·안내) | ✅ 완료 |
+| 판정 기능 (must ①: 위험·주의·안전 판정과 설명) | 🚧 준비 중 |
+| 정보통신 업무 중요성 알림 (must ②) | 🚧 준비 중 |
+
+## 만들 기능
+
+1. **의심 상황 판정과 설명**: 붙여넣은 글을 위험·주의·안전으로 판정하고, 위험 신호와 대응 방법을 알려줍니다.
+2. **정보통신 업무 중요성 알림**: "그대로 진행했다면" 생길 수 있는 일과 지휘관이 챙길 정보통신 업무 포인트를 함께 보여줍니다.
+
+## 기술 스택
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS 4
+- 배포: Vercel
+
+## 실행 방법
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 터미널에 표시된 주소(기본 http://localhost:3000)로 접속합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 문서
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 문서 | 내용 |
+|---|---|
+| [PRD.md](PRD.md) | 서비스 기획서 (배경, 목표, 기능, 범위, 보안 검토) |
+| [PLAN.md](PLAN.md) | 개발 계획과 작업 순서 |
+| [DESIGN.md](DESIGN.md) | 화면 구성, 데이터 흐름, 기술 선택 |
+| [DECISIONS.md](DECISIONS.md) | 확정한 결정 사항 (문서끼리 다르면 이 파일이 우선) |
+| [CHECK.md](CHECK.md) | 설계 대비 구현, 성공 기준, 보안 점검 결과 |
 
-## Learn More
+## 보안 원칙
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- API 키 등 비밀 값은 `.env`에만 두고 저장소·배포 파일에 올리지 않습니다.
+- AI 호출은 서버 쪽 코드에서만 합니다.
+- 입력 내용과 판정 결과는 저장하지 않습니다.
